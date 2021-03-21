@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section class="container">
+        <h1 class="text-center">Upload image .jpg or .png</h1>
+        <form id="form">
+            <div class="input-group">
+                <span class="input-group-text">name</span>
+                <input id="input-name" class="form-control" type="name">
+            </div>
+            <div class="input-group mt-3">
+                <input id="input-file" class="form-control" type="file">
+            </div>
+            <div class="previews text-center">
+                <img id="img-preview" alt="" class="preview-img mt-3">
+            </div>
+            <div class="text-center">
+                <input class="btn btn-primary mt-4" type="submit">
+            </div>
+        </form>
+        <div class="text-center mt-5">
+            <h4 id="response-text"></h4>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
