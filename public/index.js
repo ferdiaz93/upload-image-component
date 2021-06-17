@@ -30,7 +30,7 @@ form.addEventListener("submit", event => {
 
 function sendData(user){
   let formData = new FormData();
-  formData.append('username', user.username);
+  formData.append('filename', user.username);
 
   //con este nombre vamos a poder capturarlo en nuestro server
   formData.append('miarchivo', user.file);

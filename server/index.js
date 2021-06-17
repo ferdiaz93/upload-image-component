@@ -16,9 +16,12 @@ app.post('/api/save-img', upload.single('miarchivo'), (req, res) => {
   let day = dateObj.getUTCDate();
   let year = dateObj.getUTCFullYear();
 
+  // el valor del primer input llega en req.body.filename
+
+  //este bloque de codigo crea un nombre en base al dia que se esta subiendo y ubicacion donde se va a guardar
   const tempPath = req.file.path;
   const extension = path.extname(req.file.originalname).toLowerCase();
-  const newFileName = `${year}_${month}_${day}_${Date.now()}`;
+  const newFileName = `${year}_${month}_${day}_${Date.now()}`; 
   const targetPath = path.join(__dirname, `./uploads/${newFileName}${extension}`);
   
   if (extension === ".png" || extension === ".jpg") {
