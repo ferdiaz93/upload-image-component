@@ -11,9 +11,11 @@ const port = 8080;
 
 app.post('/api/save-img', upload.single('miarchivo'), (req, res) => {
   let dateObj = new Date();
+  
   let month = dateObj.getUTCMonth() + 1;
   let day = dateObj.getUTCDate();
   let year = dateObj.getUTCFullYear();
+
   const tempPath = req.file.path;
   const extension = path.extname(req.file.originalname).toLowerCase();
   const newFileName = `${year}_${month}_${day}_${Date.now()}`;
