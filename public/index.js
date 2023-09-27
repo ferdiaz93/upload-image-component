@@ -4,7 +4,7 @@ const IMG_ELEMENT = document.getElementById("img-preview");
 const INPUT_NAME = document.getElementById("input-name");
 const RESPONSE_TEXT = document.getElementById("response-text");
 
-const user = {};
+const data = {};
 
 INPUT_FILE.addEventListener("change", event => {
   RESPONSE_TEXT.innerText = "";
@@ -20,31 +20,30 @@ INPUT_FILE.addEventListener("change", event => {
         reader.readAsDataURL(selfieFile);
         //guardamos el archivo dentro de nuestro user
         //we save the file inside our user
-        user.file = selfieFile;
+        data.file = selfieFile;
     }
 });
 
 FORM.addEventListener("submit", async (event) => {
     event.preventDefault();
-    user.username = INPUT_NAME.value;
-    await sendData(user);
+    data.name = INPUT_NAME.value;
+    await sendData(data);
 })
 
-
-async function sendData(user){
+async function sendData(data){
   let formData = new FormData();
-  formData.append('filename', user.username);
+  formData.append('filename', data.name);
 
   //con este nombre vamos a poder capturarlo en nuestro server
   //with this name we can catch it from our server
-  formData.append('miarchivo', user.file);
+  formData.append('image', data.file);
   try {
     const response = await fetch('/api/save-img', {
       method: "POST",
       body: formData
     })
-    const data = await response.json();
-    showMessagge(data.success, data.message);
+    const dataResponse = await response.json();
+    showMessagge(dataResponse.success, dataResponse.message);
   } catch (error) {
     console.log(error);
     showMessagge(false, error);
